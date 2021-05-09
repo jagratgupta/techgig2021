@@ -1,0 +1,43 @@
+/* 
+ * Enter your code here. Read input from STDIN. Print your output to STDOUT. 
+ * Your class should be named CandidateCode.
+*/
+
+import java.io.*;
+import java.util.*;
+public class CandidateCode {
+    public static void main(String args[] ) throws Exception {
+
+        Scanner sc = new Scanner(System.in);
+
+        String str2 = sc.next();
+        int num = sc.nextInt();
+
+        for(int i=0;i<num;i++)
+        {
+            String str1 = sc.next();
+  
+            if(datares(str1,str2))
+                System.out.println("POSITIVE");
+            else
+                System.out.println("NEGATIVE");
+        }
+   }
+
+   public static boolean datares(String str1 , String str2){
+       int i=0,j=0;
+       int m= str1.length();
+       int n = str2.length();
+
+    /* Traverse both str1 and str2 and Compare the current character of str2 with first unmatched character of str1
+     If matched, then move ahead in str1  */
+    
+        while (j < m && i < n){
+        if (str1.charAt(j) == str2.charAt(i))
+            j = j+1;
+        i = i + 1;
+         }
+    
+    return j==m;
+   }
+}
