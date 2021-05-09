@@ -1,0 +1,61 @@
+/* 
+ * Enter your code here. Read input from STDIN. Print your output to STDOUT. 
+ * Your class should be named CandidateCode.
+*/
+
+import java.io.*;
+import java.util.*;
+public class CandidateCode {
+    public static void main(String args[] ) throws Exception {
+
+Scanner sc= new Scanner(System.in);
+
+int num = sc.nextInt();
+
+while (num >0){
+
+        int left = sc.nextInt();
+        int right = sc.nextInt();
+
+        int lval = 0;
+        int rval = 0;
+        for (int i=left;i<=right;){
+            if (lval ==0){
+                if (isprime(i))
+                    lval=i;
+                else
+                    i = i+1;
+            }
+             if (rval==0){
+                if (isprime(right))
+                    rval=right;
+                else
+                    right -=1;
+                }
+
+            if (lval!=0 &&  rval!=0)
+                break;
+        }
+
+
+  
+        if (lval!=0 && rval!=0)
+            System.out.println(rval-lval);
+        else
+            System.out.println(-1);
+        
+        num -=1;
+        }
+   }
+
+    public static boolean isprime(int n){
+        if (n<=1)
+            return false;
+        for(int i=2;i<n;i++){
+            if (n%i ==0)
+                return false;
+        }
+        return true;
+
+    }
+}
